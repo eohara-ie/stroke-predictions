@@ -3,5 +3,5 @@ My Udacity ML Nanodegree capstone project
 
 ## Data Exploration
 
-Found in `stroke-data-exploration.ipynb`.
+Found in `data-exploration.ipynb`.
 
