@@ -1,32 +1,26 @@
 # Capstone Proposal
 
-WIP
-
 ## Domain Background
 
-the field of research where the project is derived;
+Stroke is an ailment affecting the normal blood supply to the brain. According to the [World Health Organisation](https://www.who.int/bulletin/volumes/94/9/16-181636/en/) stroke is the second leading cause of death globally, accounting for 10.2% of deaths in 2016. 
 
-Student briefly details background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited. A discussion of the student's personal motivation for investigating a particular problem in the domain is encouraged but not required.
+Based on numbers of deaths alone, incidence appears to increase dramatically with age. A recent publication of the [International Journal of Scientific & Engineering Research](https://www.ijser.org/researchpaper/Stroke-Prediction-Models-A-Systematic-Review.pdf) outlines some existing models for cardiovascular risk assessment, which are used to predict strokes. There may be scope to improve on these models using Machine Learning techniques.
 
-My Capstone Proposal is anchored by the Stroke Prediction Dataset available
-
-What is stroke?
-
-Who does it affect?
-
-Trends in recent decades
-
-Personally know people who have suffered from stroke, wish to understand the affliction better
+I was personally drawn to this problem by a hunger to understand the affliction more deeply. Several people close to me have either passed away from a stroke, or are now living with a disability brought on as a result.
 
 ## Problem Statement
 
-a problem being investigated for which a solution will be defined;
-
-Student clearly describes the problem that is to be solved. The problem is well defined and has at least one relevant potential solution. Additionally, the problem is quantifiable, measurable, and replicable. 
+The aim of this project is to compare Machine Learning techniques with some existing models for stroke prediction. We wish to find an efficient ML model that will out-perform a selection of models taken from the publication in the previous paragraph.
 
 ## Datasets and Inputs
 
-data or inputs being used for the problem;
+My Capstone Proposal is driven by the Stroke Prediction Dataset available on [Kaggle](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset).
+
+This dataset was chosen as it contains features related to both person's lifestyle (e.g. `ever_married`, `smoking_status`, `Residence_type`) and medical condition (e.g. `hypertension`, `heart_disease`, `avg_glucose_level`), along with the all-important `stroke` label.
+
+Disregarding `id` and the label, we are left with ten features that should provide us with concrete insights in to what causes the ailment.
+
+It is worth noting that approximately 95% of people in the dataset did not have a stroke. It will therefore be critcal that we either rebalance our dataset, or choose a scoring algorithm such as precision & recall that punishes false negatives.
 
 The dataset(s) and/or input(s) to be used in the project are thoroughly described. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included. It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
 
