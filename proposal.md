@@ -4,33 +4,35 @@
 
 Stroke is an ailment affecting the normal blood supply to the brain. According to the [World Health Organisation](https://www.who.int/bulletin/volumes/94/9/16-181636/en/) stroke is the second leading cause of death globally, accounting for 10.2% of deaths in 2016. 
 
-Based on numbers of deaths alone, incidence appears to increase dramatically with age. A recent publication of the [International Journal of Scientific & Engineering Research](https://www.ijser.org/researchpaper/Stroke-Prediction-Models-A-Systematic-Review.pdf) outlines some existing models for cardiovascular risk assessment, which are used to predict strokes. There may be scope to improve on these models using Machine Learning techniques.
+Based on numbers of deaths alone, incidence appears to increase dramatically with age. A recent publication of the [International Journal of Scientific & Engineering Research](https://www.ijser.org/researchpaper/Stroke-Prediction-Models-A-Systematic-Review.pdf) outlines some existing models for cardiovascular risk assessment, which are used to predict strokes. There may be scope to improve on these using Machine Learning techniques.
 
 I was personally drawn to this problem by a hunger to understand the affliction more deeply. Several people close to me have either passed away from a stroke, or are now living with a disability brought on as a result.
 
 ## Problem Statement
 
-The aim of this project is to compare Machine Learning techniques with some existing models for stroke prediction. We wish to find an efficient ML model that will out-perform a selection of models taken from the publication in the previous paragraph.
+Train & deploy a Machine Learning model that can effectively & efficiently predict stroke incidence. Test results will be used to fine-tune the model if needed.
 
 ## Datasets and Inputs
 
 My Capstone Proposal is driven by the Stroke Prediction Dataset available on [Kaggle](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset).
 
-This dataset was chosen as it contains features related to both person's lifestyle (e.g. `ever_married`, `smoking_status`, `Residence_type`) and medical condition (e.g. `hypertension`, `heart_disease`, `avg_glucose_level`), along with the all-important `stroke` label.
+The dataset is available as a single CSV file. This dataset was chosen as it contains features related to both a person's lifestyle (e.g. `ever_married`, `smoking_status`, `Residence_type`) and medical condition (e.g. `hypertension`, `heart_disease`, `avg_glucose_level`), along with the all-important `stroke` label.
 
 Disregarding `id` and the label, we are left with ten features that should provide us with concrete insights in to what causes the ailment.
 
-It is worth noting that approximately 95% of people in the dataset did not have a stroke. It will therefore be critcal that we either rebalance our dataset, or choose a scoring algorithm such as precision & recall that punishes false negatives.
-
-The dataset(s) and/or input(s) to be used in the project are thoroughly described. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included. It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
+It is worth noting that approximately 95% of people in the dataset did not have a stroke. It will therefore be critcal that we either rebalance our dataset, or choose a scoring algorithm such as recall that punishes false negatives.
 
 ## Solution Statement
 
-the solution proposed for the problem given;
+Split the dataset into a training & testing set, and train an ML model to predict the likelihood of a patient having a stroke, based on features given in the dataset. Deploy and test the model against the test dataset, and further tune the model if necessary.
 
-Student clearly describes a solution to the problem. The solution is applicable to the project domain and appropriate for the dataset(s) or input(s) given. Additionally, the solution is quantifiable, measurable, and replicable.
+Next, compare the effectiveness of our new model against the specified benchmark (outlined below). Follow this with a discussion on the merits of different approaches.
 
 ## Benchmark Model
+
+Include some basic linear classifier
+
+See notebook
 
 some simple or historical model or result to compare the defined solution to;
 
