@@ -10,7 +10,7 @@ I was personally drawn to this problem by a hunger to understand the affliction 
 
 ## Problem Statement
 
-Train & deploy a Machine Learning model that can effectively & efficiently predict stroke incidence. Test results will be used to fine-tune the model if needed.
+Train & deploy a Machine Learning model that can effectively & efficiently predict stroke incidence. Following this, determine what feature(s) may be causally related to strokes.
 
 ## Datasets and Inputs
 
@@ -20,7 +20,7 @@ The dataset is available as a single CSV file. This dataset was chosen as it con
 
 Disregarding `id` and the label, we are left with ten features that should provide us with concrete insights in to what causes the ailment.
 
-It is worth noting that approximately 95% of people in the dataset did not have a stroke. It will therefore be critcal that we either rebalance our dataset, or choose a scoring algorithm such as recall that punishes false negatives.
+It is worth noting that approximately 95% of people in the dataset did not have a stroke. It will therefore be critcal that we either rebalance our dataset, or choose a scoring algorithm such as F1 score that punishes both false negatives and false positives.
 
 ## Solution Statement
 
@@ -30,41 +30,28 @@ Next, compare the effectiveness of our new model against the specified benchmark
 
 ## Benchmark Model
 
-Include some basic linear classifier
+See [data-exploration.ipynb](data-exploration.ipynb) for a benchmark model. [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) was used, with the F1 score (more info below) algorithm testing its' effectiveness.
 
-See notebook
+With the help of some Grid Search, the most effective model obtained had an F1 score of `0.2513`. This is quite a low score, that we should be able to beat with some further engineering.
 
-some simple or historical model or result to compare the defined solution to;
+Note that the dataset was not resampled for this benchmark; the only significant alteration of the underlying values was to replace null `bmi` values with the median.
 
-A benchmark model is provided that relates to the domain, problem statement, and intended solution. Ideally, the student's benchmark model provides context for existing methods or known information in the domain and problem given, which can then be objectively compared to the student's solution. The benchmark model is clearly defined and measurable.
+Logistic Regression was chosen as a benchmark as it is regularly used for binary classification, and was very straightforward & simple to train and test.
 
 ## Evaluation Metrics
 
-functional representations for how the solution can be measured;
-
-Student proposes at least one evaluation metric that can be used to quantify the performance of both the benchmark model and the solution model presented. The evaluation metric(s) proposed are appropriate given the context of the data, the problem statement, and the intended solution.
+A crucial aspect of the final model's performance is its' ability to correctly predict instances of stroke (`stroke` = 1). Due to the imbalanced nature of the label values, accuracy will not be a good measure. Both precision and recall are useful when attempting to quantify the ability of a model to predict a single class. They are handily combined in to a single metric called F1 Score. See [this link](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) for more information on the algorithm in `scikit-learn`.
 
 ## Project Design
 
-how the solution will be developed and results obtained.
+Next steps:
 
-Student summarizes a theoretical workflow for approaching a solution given the problem. Discussion is made as to what strategies may be employed, what analysis of the data might be required, or which algorithms will be considered. The workflow and discussion provided align with the qualities of the project. Small visualizations, pseudocode, or diagrams are encouraged but not required.
+- Explore other models and compare their effectiveness' against benchmark (initial research suggests RandomForest and CatBoost).
+- If significant improvements on benchmark are not seen, consider balancing dataset.
+- Deploy model in Amazon Sagemaker, and test with Lambda.
+- What feature(s) determine stroke incidence? Opportunity for visualisations i.e. [Correlation Matrix](https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_correlation_matrix_plot.htm)
+- Discuss possible enhancements to model, involving a complementary dataset if possible.
 
-## Presentation
+As the dataset is relatively small (~ 50K data points), I do not see value in testing a computationally-expensive neural network. One may be tested for sake of completeness.
 
-Proposal follows a well-organized structure and would be readily understood by its intended audience. Each section is written in a clear, concise and specific manner. Few grammatical and spelling mistakes are present. All resources used and referenced are properly cited.
-
-## delete before submitting
-
-Think about a technical field or domain that you are passionate about, such as robotics, virtual reality, finance, natural language processing, or even artificial intelligence (the possibilities are endless!). Then, choose an existing problem within that domain that you are interested in which you could solve by applying machine learning algorithms and techniques. Be sure that you have collected all of the resources needed (such as datasets, inputs, and research) to complete this project, and make the appropriate citations wherever necessary in your proposal.
-
-In addition, you may find a technical domain (along with the problem and dataset) as competitions on platforms such as Kaggle, or Devpost. This can be helpful for discovering a particular problem you may be interested in solving as an alternative to the suggested problem areas above. In many cases, some of the requirements for the capstone proposal are already defined for you when choosing from these platforms.
-Evaluation
-
-Your project will be reviewed by a Udacity reviewer against the Capstone Project Proposal rubric. Be sure to review this rubric thoroughly and self-evaluate your project before submission. All criteria found in the rubric must be meeting specifications for you to pass.
-Submission Files
-
-At a minimum, your submission will be required to have the following files listed below. If your submission method of choice is uploading an archive (*.zip), please take into consideration the total file size. You will need to include
-
-    A project proposal, in PDF format only, with the name proposal.pdf, addressing each of the seven key points of a proposal. The recommended page length for a proposal is approximately two to three pages.
-    Any additional supporting material such as datasets, images, or input files that are necessary for your project and proposal. If these files are too large and you are uploading your submission, instead provide appropriate means of acquiring the necessary files in an included README.md file.
+Note that other solutions online binned the continuous features of the given dataset, for example a bmi of between 0 and 19 is replaced with 'Underweight'. To me this is just throwing away information, so unless I see a good reason I will not do same.
