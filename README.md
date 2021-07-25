@@ -1,7 +1,23 @@
 # stroke-predictions
+
 My Udacity ML Nanodegree capstone project
 
 ## Data Exploration
 
-Found in `data-exploration.ipynb`.
+Found in `data_exploration.ipynb`.
 
+## Data Preprocessing
+
+Found in `data_preprocessing.ipynb`.
+
+## Benchmark Model
+
+Found in `benchmark.ipynb`.
+
+## Proposal
+
+See `proposal.pdf`.
+
+## Report
+
+WIP in `report.md`.
