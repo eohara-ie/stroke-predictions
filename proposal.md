@@ -30,7 +30,7 @@ Next, compare the effectiveness of our new model against the specified benchmark
 
 ## Benchmark Model
 
-See [data-exploration.ipynb](data-exploration.ipynb) for a benchmark model. [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) was used, with the F1 score (more info below) algorithm testing its' effectiveness.
+See [data_exploration.ipynb](data_exploration.ipynb) for a benchmark model. [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) was used, with the F1 score (more info below) algorithm testing its' effectiveness.
 
 With the help of some Grid Search, the most effective model obtained had an F1 score of `0.2513`. This is quite a low score, that we should be able to beat with some further engineering.
 

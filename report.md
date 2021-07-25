@@ -4,10 +4,6 @@
 
 ### Project Overview
 
-OK
-
-Student provides a high-level overview of the project in layman’s terms. Background information such as the problem domain, the project origin, and related data sets or input data is given.
-
 Stroke is an ailment affecting the normal blood supply to the brain. According to the [World Health Organisation](https://www.who.int/bulletin/volumes/94/9/16-181636/en/) stroke is the second leading cause of death globally, accounting for 10.2% of deaths in 2016.
 
 Based on numbers of deaths alone, incidence appears to increase dramatically with age. A recent publication of the [International Journal of Scientific & Engineering Research](https://www.ijser.org/researchpaper/Stroke-Prediction-Models-A-Systematic-Review.pdf) outlines some existing models for cardiovascular risk assessment, which are used to predict strokes. There may be scope to improve on these using Machine Learning techniques.
@@ -18,17 +14,9 @@ My Capstone Proposal is driven by the Stroke Prediction Dataset available on [Ka
 
 ### Problem Statement
 
-OK
-
-The problem which needs to be solved is clearly defined. A strategy for solving the problem, including discussion of the expected solution, has been made.
-
 Train & deploy a Machine Learning model that can effectively & efficiently predict stroke incidence. Following this, determine what feature(s) may be causally related to strokes.
 
 ### Metrics
-
-OK
-
-Metrics used to measure the performance of a model or result are clearly defined. Metrics are justified based on the characteristics of the problem.
 
 A crucial aspect of the final model's performance is its' ability to correctly predict instances of stroke (`stroke` = 1). Due to the imbalanced nature of the label values, accuracy will not be a good measure. Both precision and recall are useful when attempting to quantify the ability of a model to predict a single class. They are handily combined in to a single metric called F1 Score. See [this link](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) for more information on the algorithm in `scikit-learn`.
 
@@ -36,29 +24,41 @@ A crucial aspect of the final model's performance is its' ability to correctly p
 
 ### Data Exploration
 
-If a dataset is present, features and calculated statistics relevant to the problem have been reported and discussed, along with a sampling of the data. In lieu of a dataset, a thorough description of the input space or input data has been made. Abnormalities or characteristics of the data or input that need to be addressed have been identified.
-
-Pull figures from notebook.
+The dataset contains 5110 rows, each with 12 features and 1 label (`stroke`). Over 99% of rows have `stroke = 0` i.e. a stroke did not occur. One feature, `bmi`, has some null values which are taken care of.
 
 ### Exploratory Visualization
 
-A visualization has been provided that summarizes or extracts a relevant characteristic or feature about the dataset or input data with thorough discussion. Visual cues are clearly defined.
+Here, the frequency of some BMI ranges are depicted in a bar chart. The generally accepted BMI thresholds are inlcuded ([see here for reference](https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi_dis.htm)).
 
 ![BMI frequencies](images/bmi_hist.png)
+
+The most popular BMI bracket was 30 - 40. Armed with this knowledge, a relationship between obesity and stroke was investigated.
 
 ### Algorithms and Techniques
 
 Algorithms and techniques used in the project are thoroughly discussed and properly justified based on the characteristics of the problem.
 
+Insert final algorithms here.
+
 ### Benchmark
 
-Student clearly defines a benchmark result or threshold for comparing performances of solutions obtained.
+See [data_exploration.ipynb](data_exploration.ipynb) for a benchmark model. [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) was used, with the F1 score (more info below) algorithm testing its' effectiveness.
+
+With the help of some Grid Search, the most effective model obtained had an F1 score of `0.2513`. This is quite a low score, that we should be able to beat with some further engineering. //!
+
+Note that the dataset was not resampled for this benchmark; the only significant alteration of the underlying values was to replace null `bmi` values with the median.
+
+Logistic Regression was chosen as a benchmark as it is regularly used for binary classification, and was very straightforward & simple to train and test.
 
 ## Methodology
 
 ### Data Preprocessing
 
 All preprocessing steps have been clearly documented. Abnormalities or characteristics of the data or input that needed to be addressed have been corrected. If no data preprocessing is necessary, it has been clearly justified.
+
+Split preprocessing into separate notebook.
+
+Rebalancing required.
 
 ### Implementation
 
