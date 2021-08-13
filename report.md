@@ -44,7 +44,7 @@ Insert final algorithms here.
 
 See [data_exploration.ipynb](data_exploration.ipynb) for a benchmark model. [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) was used, with the F1 score (more info below) algorithm testing its' effectiveness.
 
-With the help of some Grid Search, the most effective model obtained had an F1 score of `0.2513`. This is quite a low score, that we should be able to beat with some further engineering. //!
+With the help of some Grid Search, the most effective model obtained had an F1 score of `0.2981`. This is quite a low score, that we should be able to beat with some further engineering.
 
 Note that the dataset was not resampled for this benchmark; the only significant alteration of the underlying values was to replace null `bmi` values with the median.
 
@@ -56,9 +56,7 @@ Logistic Regression was chosen as a benchmark as it is regularly used for binary
 
 All preprocessing steps have been clearly documented. Abnormalities or characteristics of the data or input that needed to be addressed have been corrected. If no data preprocessing is necessary, it has been clearly justified.
 
-Split preprocessing into separate notebook.
-
-Rebalancing required.
+Data preprocessing has been outlined in `data_preprocessing.ipynb`. The main steps taken were to replace null values, convert categorical features to continuous using one hot encoding, and split data into a training and testing set.
 
 ### Implementation
 
