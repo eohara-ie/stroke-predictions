@@ -6,7 +6,7 @@ My Udacity ML Nanodegree capstone project
 
 Found in `data_exploration.ipynb`.
 
-## Data Preprocessing
+## Data Pre-processing
 
 Found in `data_preprocessing.ipynb`.
 
